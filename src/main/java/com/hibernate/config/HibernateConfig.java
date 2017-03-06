@@ -12,12 +12,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
-import org.springframework.orm.hibernate3.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:/application.properties")
 @ComponentScan("com.hibernate")
 @EnableTransactionManagement
 public class HibernateConfig {
@@ -40,14 +40,14 @@ public class HibernateConfig {
 		Properties props = new Properties();
 		props.setProperty("hibernate.connection.hbm2ddl.auto",
 	              env.getProperty("hibernate.connection.hbm2ddl.auto"));
-		props.setProperty("hibernate.connection.dialect",
+		props.setProperty("hibernate.dialect",
 	              env.getProperty("hibernate.connection.dialect"));
 		props.setProperty("hibernate.globally_quoted_identifiers",
 	             "true");
 		props.setProperty("hibernate.connection.show_sql",
 				 env.getProperty("hibernate.connection.show_sql"));
-		props.setProperty("hibernate.connection.provider_class",
-				env.getProperty("hibernate.connection.provider_class"));
+		/*props.setProperty("hibernate.connection.provider_class",
+				env.getProperty("hibernate.connection.provider_class"));*/
 		
 		return props;
 	}
