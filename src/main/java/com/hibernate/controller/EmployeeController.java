@@ -46,6 +46,6 @@ public class EmployeeController {
 		emp.setCity(city);
 		emp.setSex(sex);
 		emp.setDoj(LocalDate.parse(doj));
-		System.out.println("Persisted Employee ID --------------->{}"+service.saveEmployee(emp));
+		System.out.println("Persisted Employee ID --------------->{}"+service.persistEmployee(emp));
 	}
 }

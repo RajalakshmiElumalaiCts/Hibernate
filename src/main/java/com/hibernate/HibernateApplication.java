@@ -10,14 +10,13 @@ import org.springframework.web.servlet.DispatcherServlet;
 @SpringBootApplication
 @ComponentScan("com.hibernate")
 public class HibernateApplication {
-
 	
 	public static void main(String[] args) {
 		SpringApplication.run(HibernateApplication.class, args);
 	}
 	
 	@Bean
-	public ServletRegistrationBean mapServletURL(DispatcherServlet dispacher){
+	public ServletRegistrationBean configureWebXml(DispatcherServlet dispacher){
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean();
 		registrationBean.setServlet(dispacher);
 		registrationBean.addUrlMappings("/myApp/*");
