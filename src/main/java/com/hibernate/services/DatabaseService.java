@@ -68,10 +68,16 @@ public class DatabaseService {
 		transaction2.commit();
 		session2.close();
 		
+	}
+
+	public void dirtyCheck(int id) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
 		
-		
-		
-		
-		
+		Employee emp = (Employee) session.get(Employee.class, id);	
+		emp.setCity("dirty check city 1");
+		//session.save(emp); - updates the same record, not creating new record
+		transaction.commit(); // need not to call save() / update() method for dirty check.transaction commit will update
+		session.close();
 	}
 }

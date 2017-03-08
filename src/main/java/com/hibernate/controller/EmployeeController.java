@@ -54,4 +54,10 @@ public class EmployeeController {
 	public  void mergeEmployee(@PathVariable int id, @PathVariable String city) {
 		service.mergeEmployee(id, city);
 	}
+	
+	//URL : http://localhost:8080/myApp/employee/dirtyCheck/9
+	@RequestMapping(value = "/dirtyCheck/{id}", method = RequestMethod.PATCH)
+	public  void dirtyCheck(@PathVariable int id) {			
+			service.dirtyCheck(id);
+		}
 }
