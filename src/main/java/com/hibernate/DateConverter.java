@@ -17,7 +17,7 @@ public class DateConverter implements AttributeConverter<LocalDate, String> {
 
 	@Override
 	public LocalDate convertToEntityAttribute(String dateStr) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		return LocalDate.parse(dateStr, formatter);
 	}
 

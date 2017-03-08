@@ -48,4 +48,10 @@ public class EmployeeController {
 		emp.setDoj(LocalDate.parse(doj));
 		System.out.println("Persisted Employee ID --------------->{}"+service.persistEmployee(emp));
 	}
+	
+	//URL : http://localhost:8080/myApp/employee/mergeEmp/9/Tirupathi 3
+	@RequestMapping(value = "/mergeEmp/{id}/{city}", method = RequestMethod.PATCH)
+	public  void mergeEmployee(@PathVariable int id, @PathVariable String city) {
+		service.mergeEmployee(id, city);
+	}
 }

@@ -49,7 +49,29 @@ public class DatabaseService {
 		transaction2.commit();	
 		session2.close();*/
 		
-		return emp.getId();
+		return emp.getId();		
+	}
+	//URL :  http://localhost:8080/myApp/employee/mergeEmp/9/Tirupathi 3
+	public void mergeEmployee(int id, String city){
+		
+		Session session1 = sessionFactory.openSession();
+		Employee emp1 = (Employee) session1.get(Employee.class, id);
+		session1.close();
+		emp1.setCity(city);
+	
+		Session session2 = sessionFactory.openSession();
+		Transaction transaction2 = session2.beginTransaction();
+		Employee emp2 = (Employee) session2.get(Employee.class, emp1.getId());	
+		emp2.setCity("my city 2");
+		session2.merge(emp1); // updates city with value which is in 'emp1' object
+		//session2.update(emp1); // throws exception, as session2 already has object 'emp2' similar to 'emp1'
+		transaction2.commit();
+		session2.close();
+		
+		
+		
+		
+		
 		
 	}
 }

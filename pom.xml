@@ -126,6 +126,7 @@
 			<artifactId>scala-reflect</artifactId>
 			<version>2.10.6</version>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
